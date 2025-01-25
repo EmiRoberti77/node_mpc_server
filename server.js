@@ -2,6 +2,13 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    timeStamp: new Date().toISOString(),
+  });
+});
+
 app.post('/mpc', (req, res) => {
   const { party1, party2 } = req.body;
 
